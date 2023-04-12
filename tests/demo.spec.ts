@@ -11,7 +11,7 @@ test.describe('demo suite', () => {
         await page.goto('/');
 
         await expect(sidebar.businessEntitiesLink,
-            'No `Business entities` link for logged in user.')
+            'No `Business entities` link for logged in user!')
             .toBeVisible();
     });
 
@@ -23,13 +23,13 @@ test.describe('demo suite', () => {
             await cleanSomeCachesOnTheServer()
         }
 
-        await expect.soft(sidebar.businessEntitiesLink,
-            'No `Business entities` link for logged in user.')
-            .not.toBeVisible();
-
         await expect(sidebar.gatewaysLink,
             'No `Gateways` link for logged in user.')
             .toBeVisible();
+
+        await expect.soft(sidebar.businessEntitiesLink,
+            'No `Business entities` link for logged in user.')
+            .not.toBeVisible();
     });
 
     test('example: pooling assertions', async ({page, baseURL}) => {
